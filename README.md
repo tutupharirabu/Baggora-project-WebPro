@@ -1,66 +1,118 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Baggora - Online Thrift Store
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Project Overview
+Baggora is an online thrift store platform built with Laravel, targeting students around campus areas. The platform provides a marketplace for second-hand items with an emphasis on quality and affordability.
 
-## About Laravel
+## Features
+- **User Authentication**: Complete login and registration system
+- **Product Catalog**: Browse products organized by categories with pagination
+- **Product Details**: View detailed information about each product
+- **Shopping Cart**: Add products to cart and manage shopping items
+- **User Profile**: Update profile information and manage account settings
+- **Newsletter Subscription**: Subscribe to newsletter for promotions and updates
+- **Contact System**: Send messages to the Baggora team
+- **Responsive Design**: Mobile-friendly UI built with Bootstrap 5
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Tech Stack
+- **Backend**: PHP 8.x, Laravel Framework
+- **Frontend**: HTML, CSS, JavaScript, Bootstrap 5
+- **Database**: MySQL
+- **Dependencies**: jQuery, Font Awesome, Bootstrap Icons
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Installation
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Prerequisites
+- PHP >= 8.0
+- Composer
+- MySQL
+- Node.js & NPM
 
-## Learning Laravel
+### Steps
+1. Clone the repository
+```bash
+git clone https://github.com/your-username/baggora.git
+cd baggora
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. Install PHP dependencies
+```bash
+composer install
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+3. Create environment file
+```bash
+cp .env.example .env
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. Generate application key
+```bash
+php artisan key:generate
+```
 
-## Laravel Sponsors
+5. Configure database in `.env` file
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=baggora
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+6. Run migrations
+```bash
+php artisan migrate
+```
 
-### Premium Partners
+7. Start the development server
+```bash
+php artisan serve
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Application Structure
 
-## Contributing
+### Models
+- `User`: User authentication and profile data
+- `emailSubs`: Newsletter subscription data
+- `pesanKami`: User messages and contact form data
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Controllers
+- `LoginController`: Handles user authentication
+- `RegisterController`: Manages user registration
+- `ProfileController`: Manages user profile updates
+- `NewsletterController`: Handles newsletter subscriptions
+- `PesanKamiController`: Processes contact form submissions
 
-## Code of Conduct
+### Views
+The application includes views for:
+- Home page
+- Product listings (with pagination)
+- Product details
+- Shopping cart
+- User profile page
+- About page
+- Contact page
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Routes
+The application defines routes for:
+- Home page (`/home`)
+- Product listings (`/barang-1`, `/barang-2`, `/barang-3`)
+- Product details (e.g., `/detailbarang-1`)
+- User authentication (`/login`, `/register`, `/logout`)
+- User profile (`/profile`, `/update-profile`, `/update-password`)
+- Contact page (`/kontak`, `/kirim-pesan`)
+- About page (`/tentang`)
+- Shopping cart (`/keranjang`)
 
-## Security Vulnerabilities
+## Database Structure
+The application uses several tables:
+- `tb_user`: Stores user information
+- `tb_emailsubscription`: Stores newsletter subscriptions
+- `tb_pesan`: Stores messages from the contact form
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Credits
+Developed by Kelompok 6 - IT4501 - Web Programming:
+- Irfan Zharauri Nanda Sudiyanto
+- Hafiz Yazid
+- Muhammad Rafi
+- Fransiskus Ishak
