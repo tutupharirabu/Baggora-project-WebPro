@@ -30,7 +30,7 @@ Baggora is an online thrift store platform built with Laravel, targeting student
 ### Steps
 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/baggora.git
+https://github.com/tutupharirabu/Baggora-project-WebPro.git
 cd baggora
 ```
 
